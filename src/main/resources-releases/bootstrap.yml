@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: jdd-bigdata-push-frequency-api
+  profiles:
+    active: releases
+
+################################################################################
+#   配置管理中心相关配
+#   这里的值配置在环境变量中
+#   如果项目没有使用统一的配置管理中心则不需要此段配置
+################################################################################
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+        enabled: false
+        server-addr: 172.16.249.59:8848
+        namespace: f26a5c63-5acd-4bee-be8b-ba68fe76a8d2
+        group: jdd-bigdata-dw
+        file-extension: properties
+        extension-configs[0]:
+          data-id: application.properties
+          group: jdd-bigdata-dw
+          refresh: true
+        extension-configs[1]:
+          data-id: hadoop.properties
+          group: jdd-bigdata-dw
+          refresh: false
+      discovery:
+        enabled: false
+        server-addr: 10.101.34.133:8848
+        namespace: 27969131-7701-4ad8-90df-563ab2bf0728
+        group: BIGDATA-PUSH-FREQUENCY
+

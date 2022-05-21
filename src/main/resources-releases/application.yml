@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  servlet:
+    context-path: "/data/check"
+
+spring:
+  profiles:
+    active: dev
+  redis:
+    timeout: 30000
+    jedis:
+      pool:
+        max-active: 500
+        max-wait: 1500
+        max-idle: 200
+        min-idle: 10
+        max-total: 5000
+    sentinel:
+      master: mymaster
+      nodes: 172.16.248.40:26379,172.16.248.41:26379,172.16.248.42:26379
+
+bloom:
+  filter:
+    size: 200
+    fpp: 0.02
+
+
